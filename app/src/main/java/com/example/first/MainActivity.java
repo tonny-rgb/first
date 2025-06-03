@@ -2,6 +2,7 @@ package com.example.first;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Button goToCartButton;
+    private Button goTOViewOrders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         goToCartButton = findViewById(R.id.goToCartButton);
+        goTOViewOrders = findViewById(R.id.goToOrdersButton); // Must match the ID in your XML
+
+
 
         List<Product> productList = Arrays.asList(
                 new Product("Apples", 200, "https://www.stylecraze.com/wp-content/uploads/2013/06/Top-26-Amazing-Benefits-Of-Green-Apples-For-Skin-Hair-And-Health-1_1200px.jpg.webp"),
@@ -35,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
         goToCartButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, CartActivity.class);
+            startActivity(intent);
+        });
+        goTOViewOrders.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ViewOrdersActivity.class);
             startActivity(intent);
         });
     }

@@ -45,7 +45,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         Product p = products.get(position);
         holder.name.setText(p.getName());
-        holder.price.setText("$" + p.getPrice());
+        holder.price.setText("kes" + p.getPrice());
         Glide.with(holder.image.getContext()).load(p.getImageUrl()).into(holder.image);
         holder.addToCart.setOnClickListener(v -> CartManager.addToCart(p));
     }
